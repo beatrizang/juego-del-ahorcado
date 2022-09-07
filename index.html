@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>AHORCADITO</title>
+		<link rel="stylesheet" href="reset.css">
+		<link rel="stylesheet" href="styles.css">
+		<link rel="icon" href="img/ahorcadito.png">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;500&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<header onclick="inicio()">
+			<img src="img/Vector.png" alt="">
+		</header>
+		<!-- INICIO DEL JUEGO -->
+		<main class="main-ppal" id="main-ppal">
+			<div class="botones-index">
+				<div>
+					
+					<button class="boton-azul espacio-vertical" onclick="nuevoJuego()">Iniciar Juego</button>
+					
+				</div>
+				<div>
+					<button class="boton-transparente" onclick="agregarPalabra()">Agregar Nueva Palabra</button>
+				</div>
+			</div>
+		</main>
+		<!-- PARA INGRESAR LA NUEVA PALABRA-->
+        <main class="main-palabra" id="main-palabra">
+            <form action="">
+                <input name="ingreso" id="ingreso" type="text" placeholder="Ingrese una palabra">
+            </form>
+            <div class="info">
+				<p id="advertencia">Solo mayusculas y un maximo de 8 letras</p>
+				<div class="informacion">
+					<i class="fas fa-exclamation-circle"></i>
+					<p>Máx. de 8 letras</p>
+				</div>
+            </div>
+			<div class="botones">
+					<button onclick="guardarPalabra()" class="boton-azul espacio-horizontal">Guardar y Empezar</button>
+					<button class="boton-transparente" onclick="inicio()">Cancelar</button>
+			</div>
+		</main>
+		<!-- PAGINA DEL JUEGO -->
+        <main class="main-juego" id="main-juego">
+			<canvas class="dibujo" id="dibujo" width="294" height="360">
+				<!-- ACA VA EL DIBUJO DEL AHORCADO-->
+			</canvas>
+			<div id="cartel-perdiste" class="cartel-perdiste">
+				<h2>¡AHORCADO! 😣</h2>
+			</div>
+			<div id="cartel-ganaste" class="cartel-ganaste">
+				<h2>¡GANASTE! 😎</h2>
+			</div>
+			<div id="cartel-palabra" class="cartel-palabra">
+				<h2>La palabra era: <p id="palabra-perdida"></p></h2>
+			</div>
+			<div class="letras">
+				<div class="letras-correctas">
+					
+					<canvas id="lineas" width="300px" height="92px">
+
+					</canvas>
+				</div>
+					<textarea class="letras-equivocadas"  id="letras-equivocadas" disabled ></textarea>
+			</div>
+
+
+			<div class="botones">
+					<button class="boton-azul" onclick="nuevoJuego()">Nuevo Juego</button>
+				
+					<button class="boton-transparente" onclick="inicio()">Desistir</button>
+			</div>
+		</main>
+		<footer>
+			<div class="creditos">
+				<p>Reto de 
+					<a href="https://www.oracle.com/ar/education/oracle-next-education/" rel="noopener noreferrer" target="_blank">
+						Oracle ONE
+					</a>
+					. Realizado por 
+					<a href="https://github.com/beatrizang" rel="noopener noreferrer" target="_blank">
+						Beatriz
+					</a>
+				</p>
+			</div>
+		</footer>
+		
+        <script src="https://kit.fontawesome.com/4cd467655d.js" crossorigin="anonymous"></script>
+		<script src="index.js"></script>
+	</body>
+</html>
