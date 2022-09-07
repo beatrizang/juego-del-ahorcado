@@ -165,6 +165,17 @@ Input::placeholder{
  
 }
 
+#mobile{
+    background-color: var(--azul-claro);
+    font-family: 'Inter', sans-serif;
+    border: none;
+    display: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 1px auto;
+}
+
 canvas{
     text-align: center;
     align-items: center;
@@ -207,7 +218,7 @@ canvas{
     align-items: center;
     text-align: center;
     justify-content: center;
-    
+    margin: auto;
 }
 #lineas{
     text-align: center;
@@ -267,5 +278,7 @@ canvas{
     }
 
     /*ESTILOS PARA PAGINA JUEGO*/
-
+    #mobile{
+        display: block;
+    }
 }

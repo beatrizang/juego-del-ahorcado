@@ -47,6 +47,7 @@
 		</main>
 		<!-- PAGINA DEL JUEGO -->
         <main onclick="detectarPresionada()" class="main-juego" id="main-juego">
+			
 			<canvas class="dibujo" id="dibujo" width="294" height="360">
 				<!-- ACA VA EL DIBUJO DEL AHORCADO-->
 			</canvas>
@@ -60,10 +61,11 @@
 				<h2>La palabra era: <p id="palabra-perdida"></p></h2>
 			</div>
 			<div class="letras">
+				<input id="mobile" type="text" placeholder="INGRESA UNA LETRA AQUI">
 				<div class="letras-correctas">
 					
 					<canvas id="lineas" width="300px" height="92px">
-
+						
 					</canvas>
 				</div>
 					<textarea class="letras-equivocadas"  id="letras-equivocadas" disabled ></textarea>

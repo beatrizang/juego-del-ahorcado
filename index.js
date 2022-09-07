@@ -45,6 +45,7 @@ function nuevoJuego(){
     letrasIngresadas=[];
     letrasIncorrectas=[];
     palabraIngresada = ["","","","","","","",""];
+    document.getElementById("mobile").value="";
     letrasEquivocadas.textContent="";
     detectarPresionada();
     dibujarLineas(palabraSecreta);
