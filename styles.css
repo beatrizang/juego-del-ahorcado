@@ -226,6 +226,29 @@ canvas{
     background-color: var(--azul-claro);
 }
 
+.teclado-virtual{
+    display: none;
+}
+
+.teclado-fila{
+    margin-bottom: 5px;
+}
+.tecla{
+    background-color: var(--azul-oscuro);
+    color: var(--azul-claro);
+    border: none;
+    width: 30px;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.tecla:hover{
+    background-color: var(--azul-claro);
+    color: var(--azul-oscuro);
+    border: 1px solid var(--azul-oscuro);
+    cursor: pointer;
+}
+
 @media screen and (max-width:728px){
     .botones-index{
         padding: 50% 0 80% 0;
@@ -267,5 +290,9 @@ canvas{
     }
 
     /*ESTILOS PARA PAGINA JUEGO*/
+
+    .teclado-virtual{
+        display: block;
+    }
 
 }

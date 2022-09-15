@@ -1,6 +1,7 @@
 
+//VARIABLES
 const letrasEquivocadas = document.getElementById('letras-equivocadas');
-const palabrasSecretas = ['CSS','HTML','ORACLE','BUG','MOUSE','PUERTA','JAVA','RELOJ','HOLA','CHAU','PERRO','GATO','PAJARO'];
+const palabrasSecretas = ['CSS','HTML','ORACLE','BUG','MOUSE','PUERTA','JAVA','RELOJ','HOLA','CHAU','PERRO','GATO','PAJARO','CALLE','PAIS','CASA','MESA','MESSI','MUSICA','SILLA','CANCION'];
 var letrasIngresadas = [];
 var letrasIncorrectas = [];
 let palabraSecreta="";
@@ -110,48 +111,59 @@ function ocultarPalabra(){
 }
 
 
-//EVENTO QUE ESPERA A QUE CUALQUIER TECLA SEA PRESIONADA
+//EVENTO QUE ESPERA A QUE CUALQUIER TECLA DEL TECLADO FISICO SEA PRESIONADA
 function detectarPresionada(){
         document.addEventListener('keydown', (event) => {
             letraCapturada = event.key;
+            main(letraCapturada);
+        }, false);
+}
 
-            if(intentos<intentosMax){
-                if(esLetra(letraCapturada) && !esRepetida(letraCapturada)){
 
-                    //SE AGREGA AL ARRAY LA LETRA CAPTURADA SEA O NO CORRECTA
-                    letrasIngresadas.push(letraCapturada);
+//DETECTA LAS TECLAS INGRESADAS DESDE EL TECLADO VIRTUAL
+function teclaDetectada(letraCapturada){
+    main(letraCapturada);
+}
 
-                    if(esLetraCorrecta(letraCapturada)){
-                        for(i = 0 ; i< palabraSecreta.length; i++){
-                            if(palabraSecreta[i] == letraCapturada.toUpperCase()){
-                                palabraIngresada.splice(i,1,letraCapturada.toUpperCase());
-                                dibujarLetra(letraCapturada,posicionX(i),70);
-                            }
-                        }
-                        //COMPRUEBA SI YA GANO
-                        if(palabraIngresada.join("") == palabraSecreta){
-                            mostrarGano();
-                        } 
-                    }
-                    else{
-                        intentos++;
-                        if(intentos == intentosMax){
-                            mostrarPerdio();
-                            mostrarPalabra();
-                        }
-                        //GUARDO LA LETRA CAPTURADA EN UN ARRAY
-                        guardarIncorrectas(letraCapturada);
-                        dibujar();
+//FUNCION PRINCIPAL DE LA APP
+function main(letraCapturada){
+    if(intentos<intentosMax){
+        if(esLetra(letraCapturada) && !esRepetida(letraCapturada)){
+
+            //SE AGREGA AL ARRAY LA LETRA CAPTURADA SEA O NO CORRECTA
+            letrasIngresadas.push(letraCapturada);
+
+            if(esLetraCorrecta(letraCapturada)){
+                for(i = 0 ; i< palabraSecreta.length; i++){
+                    if(palabraSecreta[i] == letraCapturada.toUpperCase()){
+                        palabraIngresada.splice(i,1,letraCapturada.toUpperCase());
+                        dibujarLetra(letraCapturada,posicionX(i),70);
                     }
                 }
+                //COMPRUEBA SI YA GANO
+                if(palabraIngresada.join("") == palabraSecreta){
+                    mostrarGano();
+                } 
             }
             else{
+                //SI ERRO SE SUMA UN INTENTO Y SE COMPRUEBA SI PERDIO
+                intentos++;
                 if(intentos == intentosMax){
                     mostrarPerdio();
                     mostrarPalabra();
                 }
+                //GUARDO LA LETRA CAPTURADA EN UN ARRAY
+                guardarIncorrectas(letraCapturada);
+                dibujar();
             }
-        }, false);
+        }
+    }
+    else{
+        if(intentos == intentosMax){
+            mostrarPerdio();
+            mostrarPalabra();
+        }
+    }
 }
 
 
@@ -170,6 +182,7 @@ function mostrarPerdio(){
 function ocultarPerdio(){
     document.getElementById("cartel-perdiste").style.display = "none";
 }
+
 
 //MUESTRA EL CARTEL GANADOR
 function mostrarGano(){
