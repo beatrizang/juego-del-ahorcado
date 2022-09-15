@@ -45,7 +45,6 @@ function nuevoJuego(){
     letrasIngresadas=[];
     letrasIncorrectas=[];
     palabraIngresada = ["","","","","","","",""];
-    document.getElementById("mobile").value="";
     letrasEquivocadas.textContent="";
     detectarPresionada();
     dibujarLineas(palabraSecreta);
@@ -137,7 +136,7 @@ function detectarPresionada(){
                     }
                     else{
                         intentos++;
-                        if(intentos>=intentosMax){
+                        if(intentos == intentosMax){
                             mostrarPerdio();
                             mostrarPalabra();
                         }
@@ -148,8 +147,10 @@ function detectarPresionada(){
                 }
             }
             else{
-                mostrarPerdio();
-                mostrarPalabra();
+                if(intentos == intentosMax){
+                    mostrarPerdio();
+                    mostrarPalabra();
+                }
             }
         }, false);
 }
@@ -173,7 +174,9 @@ function ocultarPerdio(){
 
 //MUESTRA EL CARTEL GANADOR
 function mostrarGano(){
+    intentos = 10; //PONGO UN NUMERO QUE SOBREPASA LA CANTIDAD DE INTENTOS
     document.getElementById("cartel-ganaste").style.display = "block";
+    
 }
 
 //OCULTA EL CARTEL GANADOR
@@ -355,6 +358,8 @@ function dibujar(){
 
         case 9:
             dibujarPiernaIzq();
+            break;
+        default:
             break;
       }
 
