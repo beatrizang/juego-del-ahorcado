@@ -1,6 +1,6 @@
 
 const letrasEquivocadas = document.getElementById('letras-equivocadas');
-const palabrasSecretas = ['CSS','HTML','ORACLE','BUG','MOUSE','MYSQL','JAVA','RELOJ','HOLA','CHAU','PERRO','GATO','PAJARO'];
+const palabrasSecretas = ['CSS','HTML','ORACLE','BUG','MOUSE','PUERTA','JAVA','RELOJ','HOLA','CHAU','PERRO','GATO','PAJARO'];
 var letrasIngresadas = [];
 var letrasIncorrectas = [];
 let palabraSecreta="";
@@ -80,7 +80,6 @@ function esMayusculas(palabra){
 function sortearPalabra(){
     let indice = Math.round(Math.random()*palabrasSecretas.length);
     palabraSecreta = palabrasSecretas[indice];
-    console.log("palabra elegida "+palabraSecreta);
 }
 
 //COMPRUEBA SI ES UNA LETRA O NO
