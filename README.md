@@ -1,4 +1,4 @@
-# Oracle Next Education | Desafío N° 1 | Encriptador
+# Oracle Next Education | Desafío N° 2 | Juego del Ahorcado
 ![](img/Oracle-ONE.webp)
 
 Este desafío fue realizado como práctica para Oracle Next Education.
